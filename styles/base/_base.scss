@@ -1,0 +1,124 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+
+body {
+  background-color: $black;
+}
+
+div.container {
+  padding: 16px;
+  position: relative;
+  box-sizing: border-box;
+  color: $white;
+  margin-left: auto;
+  margin-right: auto;
+  //width: 100%;
+  max-width: 375px;
+
+  @include tablet {
+    padding: 32px;
+    //width: 100%;
+    max-width: 768px;
+  }
+  @include desktop {
+    padding: 165px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    //width: 100%;
+    max-width: 1440px;
+
+    &:last-of-type {
+      // para ajutar espacio del footer
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  }
+}
+
+div.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0;
+  margin-left: 0;
+  @include mobile {
+    max-width: 375px;
+  }
+  @include tablet {
+    max-width: 768px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @include desktop {
+    max-width: 1440px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  @include tablet {
+    margin-top: 0px;
+  }
+  @include desktop {
+    &:nth-of-type(2) {
+      display: none;
+    }
+  }
+}
+
+hr.experience {
+  margin-top: 0px;
+  min-width: 100%;
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
+}
+
+hr.footer {
+  margin-bottom: 20px;
+  @include tablet {
+    margin-bottom: 0px;
+  }
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+  &:hover {
+    color: $green;
+  }
+}

@@ -1,0 +1,161 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+div.container-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(./../../public/img/circle-lines.svg);
+  background-repeat: no-repeat;
+  background-position: -250px 440px;
+  background-color: $dark-grey;
+  margin-left: auto;
+  margin-right: auto;
+  @include tablet {
+    background-position: -250px 550px;
+  }
+  @include desktop {
+    background-position: 0px 360px;
+  }
+}
+
+section.contact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  padding: 16px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: 375px;
+  h3 {
+    text-align: center;
+    @include desktop {
+      text-align: start;
+    }
+  }
+  button {
+    align-self: flex-end;
+    padding-top: 30px;
+  }
+  @include tablet {
+    max-width: 445px;
+  }
+
+  p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    @include desktop {
+      text-align: start;
+      margin: 0px;
+      margin-top: 40px;
+      min-width: 70%;
+    }
+  }
+
+  @include desktop {
+    flex-direction: row;
+    max-width: 1440px;
+    padding: 165px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 100%; /* para que inputs y botón estén apilados */
+  @include desktop {
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+    }
+  }
+}
+
+@include desktop {
+  div.contact-text {
+    width: 100%;
+  }
+  form {
+    max-width: 40%;
+  }
+}
+
+div.input-wraper {
+  /* los input no pueden llevar before
+  así que necesitan un div para asígnarle la pseudoclase */
+  display: flex;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  .warning {
+    // Icono de alerta para email para que no se vea
+    opacity: 0;
+    text-align: right;
+    position: absolute;
+    font-size: 14px;
+    right: 0;
+    bottom: -22px;
+    color: rgba(255, 111, 91, 1);
+    &::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      top: -30px;
+      right: 0px;
+      vertical-align: middle;
+      background-image: url("./../../public/img/icon-warning.svg"); /* ruta a tu SVG */
+      background-size: contain;
+    }
+  }
+  input:invalid:not(:placeholder-shown) + .warning {
+    opacity: 1; // aquí lo mostramos cuando input:invalid
+  }
+}
+
+input {
+  position: relative;
+  color: $white; // Para la acción de escribir en el input
+  border: none;
+  border-bottom: 1px solid $white;
+  padding: 20px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  width: 100%;
+  box-sizing: border-box; /* input tienen por defecto box-sizing: content-box.
+  Y hace que se salga del padding del container */
+
+  &:placeholder-shown {
+    border-bottom: 1px solid $white;
+  }
+
+  &:valid {
+    border-bottom: 1px solid $green;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-bottom: 1px solid rgba(255, 111, 91, 1);
+  }
+
+  &::placeholder {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+    color: $light-grey;
+  }
+
+  &.message {
+    padding-bottom: 100px;
+  }
+}

@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+footer div.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark-grey;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    padding-top: 30px;
+    width: 100%;
+  }
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    padding-top: 30px;
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  hr {
+    background-color: 1px solid $white;
+    width: 100%;
+  }
+  ul {
+    display: flex;
+    text-align: center;
+    gap: 28px;
+    @include tablet {
+      margin: 0px;
+      height: 24px;
+    }
+    @include desktop {
+      margin: 0px;
+    }
+  }
+  h2 {
+    color: $white;
+  }
+  @include tablet {
+    padding: 32px;
+  }
+  @include desktop {
+    padding: 165px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+  }
+}

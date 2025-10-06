@@ -1,0 +1,61 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+main div.container {
+  /* en el archivo _helpers.scss
+   está margin-left: auto y margin-right: auto*/
+  background-image: url(./../../public/img/circle-lines-right.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% + 100px) 600px;
+  @include tablet {
+    background-image: url(./../../public/img/circle-lines-right.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% + 100px) 400px;
+  }
+  @include desktop {
+    background-image: url(./../../public/img/circle-lines-right.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% + 0px) 250px;
+  }
+}
+
+section.experience {
+  margin-bottom: 20px;
+  width: 100%;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    h2 {
+      text-align: start;
+      padding-bottom: 15px;
+    }
+  }
+  @include desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    h2 {
+      text-align: start;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+section.experience article {
+  min-width: 50%;
+  margin-bottom: 30px;
+  @include desktop {
+    min-width: 33%;
+    max-width: 30%;
+  }
+}
+
+.experience p {
+  margin: 0px;
+  margin-bottom: 20px;
+  color: $super-light-grey;
+}

@@ -1,0 +1,115 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+section.projects {
+  margin-bottom: 80px;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @include desktop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+}
+
+div.title-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  @include tablet {
+    width: 100%;
+    align-items: center;
+  }
+  @include desktop {
+    width: 100%;
+    align-items: center;
+  }
+}
+h3 {
+  margin: 0px;
+  font-size: 40px;
+  line-height: 40px;
+  @include tablet {
+    font-size: 72px;
+    line-height: 72px;
+    letter-spacing: -2px;
+  }
+  @include desktop {
+    font-size: 88px;
+    line-height: 88px;
+    letter-spacing: -2px;
+  }
+}
+
+section.projects article {
+  position: relative; //para posicionar buttons dentro, en @desktop
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  img {
+    max-width: 100%;
+  }
+  @include tablet {
+    min-width: 40%;
+    max-width: 48%;
+  }
+  @include desktop {
+    min-width: 40%;
+    max-width: 48%;
+  }
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: $white;
+}
+
+div.title-article {
+  padding-bottom: 20px;
+  li {
+    display: inline;
+    text-transform: uppercase;
+    padding-right: 20px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    color: $super-light-grey;
+  }
+}
+
+// comportamiento hover en PROJECTS
+@include desktop {
+  article div.buttons {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    gap: 30px;
+  }
+  article button {
+    margin: 0px;
+  }
+
+  article:hover .buttons {
+    // selector cualquier hermano (hermano general)
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  article:hover img {
+    filter: brightness(0.4);
+  }
+}

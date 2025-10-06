@@ -1,0 +1,258 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+/* Imágenes decorativas pegadas a los bordes de las pantallas.
+body {
+  background-image: url(./../../public/img/circle-lines.svg),
+    url(./../../public/img/circle.svg);
+  background-repeat: no-repeat;
+  background-position: calc(0% - 250px) 130px, calc(100% + 70px) 250px;
+}
+*/
+header div.container {
+  /* en el archivo _helpers.scss
+   está margin-left: auto y margin-right: auto*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(./../../public/img/circle-lines.svg),
+    url(./../../public/img/circle.svg);
+  background-repeat: no-repeat;
+  background-position: calc(0% - 250px) 130px, calc(100% + 70px) 250px;
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+
+    background-image: url(./../../public/img/circle-lines.svg),
+      url(./../../public/img/circle.svg);
+    background-repeat: no-repeat;
+    background-position: calc(0% - 150px) 80px, calc(100% + 70px) 470px;
+  }
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+
+    background-image: url(./../../public/img/circle-lines.svg),
+      url(./../../public/img/circle.svg);
+    background-repeat: no-repeat;
+    background-position: calc(0% - 0px) 140px, calc(100% - 546px) 470px;
+  }
+}
+
+header div.content {
+  @include tablet {
+    display: flex;
+    align-items: start;
+  }
+  @include desktop {
+    display: flex;
+    align-items: start;
+  }
+}
+
+div.hero {
+  align-content: center;
+  margin-bottom: 30px;
+  @include tablet {
+    max-width: 70%;
+  }
+  @include desktop {
+    max-width: 70%;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: start;
+  }
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: start;
+    padding-top: 10px;
+  }
+}
+h1 {
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-top: 35px;
+  span {
+    position: relative;
+  }
+  .line::before {
+    content: "";
+    height: 5px;
+    width: 100%;
+    background-color: $green;
+    position: absolute;
+    translate: 0px 40px;
+    @include tablet {
+      position: absolute;
+      translate: 0px 72px;
+    }
+    @include desktop {
+      position: absolute;
+      translate: 0px 90px;
+    }
+  }
+
+  @include tablet {
+    font-size: 72px;
+    line-height: 72px;
+    font-weight: 700;
+    text-align: start;
+    letter-spacing: -2px;
+    margin-top: 60px;
+  }
+  @include desktop {
+    font-size: 88px;
+    line-height: 88px;
+    font-weight: 700;
+    text-align: start;
+    letter-spacing: -2px;
+    margin-top: 120px;
+    margin-bottom: 60px;
+  }
+}
+
+br {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0px;
+  text-align: center;
+  &.home {
+    font-size: 24px;
+    margin: 0px;
+    text-align: center;
+    @include tablet {
+      font-size: 32px;
+      line-height: 32px;
+    }
+    @include desktop {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  }
+  @include tablet {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 700;
+  }
+  @include desktop {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 700;
+  }
+}
+
+p {
+  color: $super-light-grey;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  @include tablet {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    max-width: 90%;
+    text-align: start;
+  }
+  @include desktop {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    max-width: 55%;
+    text-align: start;
+  }
+}
+
+div.profile {
+  display: flex;
+  justify-content: center;
+  width: 175px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba($black, 0.7),
+    rgba($dark-grey, 0.7)
+  );
+  @include tablet {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    width: 322px;
+    height: 600px;
+    background-color: $dark-grey;
+  }
+  @include desktop {
+    position: absolute;
+    right: 165px;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    width: 445px;
+    height: 720px;
+    background-color: $dark-grey;
+  }
+}
+
+img.profile {
+  padding-top: 30px;
+  max-width: 100%;
+  @include tablet {
+    max-width: 322px;
+    max-height: fit-content;
+    align-self: flex-end;
+  }
+  @include desktop {
+    max-width: 445px;
+    max-height: fit-content;
+    align-self: flex-end;
+  }
+}
+
+ul {
+  display: flex;
+  padding: 0px;
+  gap: 25px;
+  @include tablet {
+    margin-top: 0px;
+  }
+  @include desktop {
+    margin-top: 0px;
+    margin-right: 32px;
+    gap: 35px;
+  }
+}
+
+a img {
+  width: 20px;
+  @include tablet {
+    width: 25px;
+  }
+  @include desktop {
+    width: 25px;
+  }
+}

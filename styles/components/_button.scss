@@ -1,0 +1,54 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+button {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none; /* esto está en _base.scss al final */
+  border-bottom: 2px solid $green;
+  color: $white;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+
+  @include tablet {
+    max-height: 40px;
+  }
+
+  &.hero-mobile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @include tablet {
+      margin-left: 0;
+      margin-top: 40px;
+    }
+    @include desktop {
+      margin-left: 0;
+      margin-top: 60px;
+      margin-bottom: 80px;
+    }
+  }
+}
+
+article button {
+  margin-right: 25px;
+}
+
+ul li a img:hover {
+  filter: invert(35%) sepia(50%) saturate(489%) hue-rotate(113deg)
+    brightness(100%) contrast(100%);
+}
+
+button:hover {
+  color: $green;
+}
+
+section.contact button {
+  margin-left: auto;
+}
